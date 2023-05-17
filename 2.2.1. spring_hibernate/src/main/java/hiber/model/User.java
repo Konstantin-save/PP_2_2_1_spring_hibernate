@@ -21,7 +21,7 @@ public class User {
 
 
    @OneToOne(cascade = CascadeType.ALL)    //при выполн операции над User,она распространяется и на Car
-   @JoinColumn(name = "car_Id")          //через какие колонки связаны таблицы
+   @JoinColumn(name = "car_id")          //через какие колонки связаны таблицы
    private Car empCar;                  //с какой табл связана табл User
 
    public User() {}

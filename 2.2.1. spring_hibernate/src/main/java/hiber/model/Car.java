@@ -3,7 +3,6 @@ package hiber.model;
 import javax.persistence.*;
 @Entity                       //связь с табл
 @Table(name = "car")
-
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
