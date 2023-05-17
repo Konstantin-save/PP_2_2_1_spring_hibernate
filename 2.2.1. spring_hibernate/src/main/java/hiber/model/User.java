@@ -19,12 +19,18 @@ public class User {
    @Column(name = "email")
    private String email;
 
+
+   @OneToOne(cascade = CascadeType.ALL)    //при выполн операции над User,она распространяется и на Car
+   @JoinColumn(name = "car_Id")          //через какие колонки связаны таблицы
+   private Car empCar;                  //с какой табл связана табл User
+
    public User() {}
-   
-   public User(String firstName, String lastName, String email) {
+
+   public User(String firstName, String lastName, String email, Car empCar) {
       this.firstName = firstName;
       this.lastName = lastName;
       this.email = email;
+      this.empCar = empCar;
    }
 
    public Long getId() {
@@ -58,4 +64,23 @@ public class User {
    public void setEmail(String email) {
       this.email = email;
    }
+
+   public Car getEmpCar() {
+      return empCar;
+   }
+
+   public void setEmpCar(Car empCar) {
+      this.empCar = empCar;
+   }
+
+   @Override
+   public String toString() {
+      return "User{" +
+              "id=" + id +
+              ", firstName='" + firstName + '\'' +
+              ", lastName='" + lastName + '\'' +
+              ", email='" + email + '\'' +
+              '}';
+   }
 }
+
